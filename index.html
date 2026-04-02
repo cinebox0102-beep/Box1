@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CINEBOX</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #0a0f2c, #020617);
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* LINHAS TECNOLÓGICAS NO FUNDO */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        rgba(59,130,246,0.05) 0px,
+        rgba(59,130,246,0.05) 1px,
+        transparent 1px,
+        transparent 80px
+    );
+    animation: moveLines 10s linear infinite;
+}
+
+@keyframes moveLines {
+    from {transform: translateX(0);}
+    to {transform: translateX(80px);}
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(2,6,23,0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(59,130,246,0.2);
+}
+
+header h1 {
+    color: #3b82f6;
+    text-shadow: 0 0 10px #3b82f6;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #94a3b8;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #3b82f6;
+    text-shadow: 0 0 8px #3b82f6;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    color: #60a5fa;
+    text-shadow: 0 0 20px rgba(96,165,250,0.8);
+}
+
+.hero p {
+    margin-top: 15px;
+    color: #94a3b8;
+}
+
+.btn {
+    margin-top: 30px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #3b82f6, #06b6d4);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(59,130,246,0.6);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(59,130,246,1);
+}
+
+/* CARDS */
+.cards {
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(2,6,23,0.6);
+    border: 1px solid rgba(59,130,246,0.2);
+    backdrop-filter: blur(15px);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(59,130,246,0.3), transparent);
+    transform: rotate(25deg);
+    top: -100%;
+    left: -100%;
+    transition: 0.5s;
+}
+
+.card:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #3b82f6;
+}
+
+.card h3 {
+    color: #3b82f6;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+    border-top: 1px solid rgba(59,130,246,0.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>CINEBOX</h1>
+    <nav>
+        <a href="Início.html">|Início|</a>
+        <a href="Jogos.html">Jogos</a>
+        <a href="Programas.html">Programas</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h2>Conectando o futuro</h2>
+        <p>Nem tudo precisa ser quente… às vezes o frio do azul é onde a mente fica mais clara.</p>
+        <button class="btn">Entrar no Sistema</button>
+    </div>
+</section>
+
+<section class="cards">
+    <div class="card">
+        <h3>Alta Performance</h3>
+        <p>Rápido, direto… sem travar, sem complicar.</p>
+    </div>
+
+    <div class="card">
+        <h3>Interface Inteligente</h3>
+        <p>Responde ao toque… como se entendesse você.</p>
+    </div>
+
+    <div class="card">
+        <h3>Segurança Digital</h3>
+        <p>Tudo protegido… porque nem tudo pode ficar exposto.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 • Sistema ativo</p>
+</footer>
+
+</body>
+</html>
