@@ -19,7 +19,7 @@ body {
     overflow-x: hidden;
 }
 
-/* LINHAS TECNOLÓGICAS NO FUNDO */
+/* LINHAS TECNOLÓGICAS */
 body::before {
     content: "";
     position: fixed;
@@ -105,7 +105,7 @@ nav a:hover {
     box-shadow: 0 0 25px rgba(59,130,246,1);
 }
 
-/* CARDS */
+/* CARDS PRINCIPAIS */
 .cards {
     padding: 60px 40px;
     display: grid;
@@ -150,6 +150,56 @@ nav a:hover {
     color: #3b82f6;
 }
 
+/* CARROSSEL (ISOLADO SEM QUEBRAR O RESTO) */
+.carrossel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+.carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.carrossel .card {
+    min-width: 200px;
+    height: 300px;
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.carrossel .card h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.carrossel .card img {
+    width: 130px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carrossel .btn {
+    padding: 8px 15px;
+    background: #2563eb;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 60%;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -157,7 +207,6 @@ footer {
     color: #64748b;
     border-top: 1px solid rgba(59,130,246,0.2);
 }
-
 </style>
 </head>
 
@@ -170,36 +219,37 @@ footer {
         <a href="Jogos.html">||Jogos||</a>
         <a href="Programas.html">Programas</a>
     </nav>
+
 </header>
 
-<section class="hero">
-    <div>
-        <h2>Conectando o futuro</h2>
-        <p>Nem tudo precisa ser quente… às vezes o frio do azul é onde a mente fica mais clara.</p>
-        <button class="btn">Entrar no Sistema</button>
-    </div>
-</section>
+<h1>Jogos de PS2</h1>
 
-<section class="cards">
+<!-- CARROSSEL -->
+<div class="carrossel">
+
     <div class="card">
-        <h3>Alta Performance</h3>
-        <p>Rápido, direto… sem travar, sem complicar.</p>
+        <h3>Resident Evil 4</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8FcNwuVhqCCKZ0ZqSBbAs-ZZQy8pjWWfvzdlmKyRSQg&s=10">
+        <a href="#" target="_blank" class="btn">Baixar</a>
     </div>
 
     <div class="card">
-        <h3>Interface Inteligente</h3>
-        <p>Responde ao toque… como se entendesse você.</p>
+        <h3>Mortal Kombat: S.M.</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ23Z2LjaCKhuVqkWSAA4qTi7e63vWCvjJ_Y3bO3X5C3jFLwE39REsGP20&s=10">
+        <a href="#" target="_blank" class="btn">Baixar</a>
     </div>
 
     <div class="card">
-        <h3>Segurança Digital</h3>
-        <p>Tudo protegido… porque nem tudo pode ficar exposto.</p>
+        <h3>God of War</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkF50Bi_pLXQStwZ2FWbRU_n7WdQpOCadIuGy5XcVbEZhU05iaBxPWERKz&s=10">
+        <a href="#" target="_blank" class="btn">Baixar</a>
     </div>
-</section>
 
-<footer>
-    <p>© 2026 • Sistema ativo</p>
-</footer>
+    <div class="card">
+        <h3>Black</h3>
+        <img src="https://images.launchbox-app.com/a53537fb-f6fc-41cf-ad61-db1b16b59b5f.jpg">
+        <a href="#" target="_blank" class="btn">Baixar</a>
+    </div>
 
-</body>
-</html>
+</div>
+
