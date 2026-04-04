@@ -19,7 +19,7 @@ body {
     overflow-x: hidden;
 }
 
-/* LINHAS TECNOLÓGICAS NO FUNDO */
+/* LINHAS TECNOLÓGICAS */
 body::before {
     content: "";
     position: fixed;
@@ -105,7 +105,7 @@ nav a:hover {
     box-shadow: 0 0 25px rgba(59,130,246,1);
 }
 
-/* CARDS */
+/* CARDS PRINCIPAIS */
 .cards {
     padding: 60px 40px;
     display: grid;
@@ -150,6 +150,56 @@ nav a:hover {
     color: #3b82f6;
 }
 
+/* CARROSSEL (ISOLADO SEM QUEBRAR O RESTO) */
+.carrossel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+.carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.carrossel .card {
+    min-width: 300px;
+    height: 300px;
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.carrossel .card h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.carrossel .card img {
+    width:  130px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carrossel .btn {
+    padding: 8px 15px;
+    background: #2563eb;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 60%;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -157,7 +207,6 @@ footer {
     color: #64748b;
     border-top: 1px solid rgba(59,130,246,0.2);
 }
-
 </style>
 </head>
 
@@ -172,34 +221,22 @@ footer {
     </nav>
 </header>
 
-<section class="hero">
-    <div>
-        <h2>Conectando o futuro</h2>
-        <p>Nem tudo precisa ser quente… às vezes o frio do azul é onde a mente fica mais clara.</p>
-        <button class="btn">Entrar no Sistema</button>
-    </div>
-</section>
-
-<section class="cards">
-    <div class="card">
-        <h3>Alta Performance</h3>
-        <p>Rápido, direto… sem travar, sem complicar.</p>
-    </div>
+<!-- CARROSSEL -->
+<div class="carrossel">
 
     <div class="card">
-        <h3>Interface Inteligente</h3>
-        <p>Responde ao toque… como se entendesse você.</p>
+        <h3>OPL Manager</h3>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYxS0FKHt7BUk1fMptjGle_g9EpbDlZUpVxH7tHrqeqw&s=10">
+        <a href="https://oplmanager.com/site/" target="_blank" class="btn">Baixar</a>
     </div>
 
-    <div class="card">
-        <h3>Segurança Digital</h3>
-        <p>Tudo protegido… porque nem tudo pode ficar exposto.</p>
-    </div>
-</section>
+   </div>
+</header>
 
 <footer>
-    <p>© 2026 • Sistema ativo</p>
+    <p>© 2026 • Box1</p>
 </footer>
 
-</body>
-</html>
+
+
+
