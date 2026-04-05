@@ -19,7 +19,7 @@ body {
     overflow-x: hidden;
 }
 
-/* LINHAS TECNOLÓGICAS NO FUNDO */
+/* FUNDO */
 body::before {
     content: "";
     position: fixed;
@@ -33,6 +33,7 @@ body::before {
         transparent 80px
     );
     animation: moveLines 10s linear infinite;
+    z-index: -1;
 }
 
 @keyframes moveLines {
@@ -73,81 +74,56 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 20px;
 }
 
-.hero h2 {
-    font-size: 3.5rem;
+/* CAIXA DE MENSAGEM */
+.box {
+    width: 100%;
+    max-width: 350px;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(2,6,23,0.7);
+    border: 1px solid rgba(59,130,246,0.2);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    text-align: center;
+}
+
+.box h2 {
     color: #60a5fa;
-    text-shadow: 0 0 20px rgba(96,165,250,0.8);
+    margin-bottom: 15px;
 }
 
-.hero p {
-    margin-top: 15px;
-    color: #94a3b8;
-}
-
-.btn {
-    margin-top: 30px;
-    padding: 14px 30px;
+.box input,
+.box textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 6px;
     border: none;
-    border-radius: 30px;
+    outline: none;
+}
+
+.box textarea {
+    height: 80px;
+    resize: none;
+}
+
+.box button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
     background: linear-gradient(90deg, #3b82f6, #06b6d4);
     color: white;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 15px rgba(59,130,246,0.6);
 }
 
-.btn:hover {
+.box button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(59,130,246,1);
-}
-
-/* CARDS */
-.cards {
-    padding: 60px 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    padding: 25px;
-    border-radius: 15px;
-    background: rgba(2,6,23,0.6);
-    border: 1px solid rgba(59,130,246,0.2);
-    backdrop-filter: blur(15px);
-    transition: 0.4s;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(120deg, transparent, rgba(59,130,246,0.3), transparent);
-    transform: rotate(25deg);
-    top: -100%;
-    left: -100%;
-    transition: 0.5s;
-}
-
-.card:hover::before {
-    top: 100%;
-    left: 100%;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: #3b82f6;
-}
-
-.card h3 {
-    color: #3b82f6;
+    box-shadow: 0 0 20px rgba(59,130,246,0.8);
 }
 
 /* FOOTER */
@@ -157,7 +133,6 @@ footer {
     color: #64748b;
     border-top: 1px solid rgba(59,130,246,0.2);
 }
-
 </style>
 </head>
 
@@ -166,40 +141,41 @@ footer {
 <header>
     <h1>BOX1</h1>
     <nav>
-        <a href="index.html">||Início||</a>
+        <a href="index.html">Início</a>
         <a href="Jogos.html">Jogos</a>
         <a href="Programas.html">Programas</a>
     </nav>
 </header>
 
 <section class="hero">
-    <div>
-        <h2>Conectando o futuro</h2>
-        <p>Nem tudo precisa ser quente… às vezes o frio do azul é onde a mente fica mais clara.</p>
-        <button class="btn">Entrar no Sistema</button>
-    </div>
-</section>
+    <div class="box">
+        <h2>Deixe seu Pedido</h2>
 
-<section class="cards">
-    <div class="card">
-        <h3>Alta Performance</h3>
-        <p>Rápido, direto… sem travar, sem complicar.</p>
-    </div>
+        <input type="text" id="nome" placeholder="Seu nome">
+        <textarea id="mensagem" placeholder="Escreva sua mensagem..."></textarea>
 
-    <div class="card">
-        <h3>Interface Inteligente</h3>
-        <p>Responde ao toque… como se entendesse você.</p>
-    </div>
-
-    <div class="card">
-        <h3>Segurança Digital</h3>
-        <p>Tudo protegido… porque nem tudo pode ficar exposto.</p>
+        <button onclick="enviar()">Enviar pelo WhatsApp</button>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 • Sistema ativo</p>
+    <p>© 2026 • Box1</p>
 </footer>
+
+<script>
+function enviar() {
+    let nome = document.getElementById("nome").value;
+    let msg = document.getElementById("mensagem").value;
+
+    let numero = "5579999555352";
+
+    let texto = `Olá, meu nome é ${nome}. ${msg}`;
+
+    let url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+
+    window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
